@@ -25,6 +25,9 @@ PRDownloaderProto.createdCallback = function() {
     var downloader = new PearDownloader(this.dataset.src, {
         useMonitor: true
     });
+    downloader.on('progress', function(p){
+      console.warn(p, '-------');
+    });
     PRDownloaderProto.instance = downloader;
 
 }
