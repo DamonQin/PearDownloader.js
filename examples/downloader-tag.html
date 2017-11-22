@@ -6,23 +6,29 @@
 </head>
 <script src="../dist/pear-downloader.js"></script>
 <body>
-    <pr-downloader id="downloader"
-                   data-src="https://qq.webrtc.win/tv/Pear-Demo-Yosemite_National_Park.mp4">adf
-    </pr-downloader>
-</body>
-<script>
-    var PRDownloader = document.getElementById('downloader');
 
-    PRDownloader.instance.on('begin', function () {
-        console.warn('6666666666');
-        console.warn(PRDownloader.instance);
-    });
-    PRDownloader.instance.on('done', function () {
-        console.warn('finished downloading buffer by first aid');
-    });
-    PRDownloader.instance.on('sourcemap', onSourceMap);
-    function onSourceMap(sourceType, index) {
-        console.warn('Received source type:' + sourceType + ' index:' + index);
+
+    <script type="">
+    function downloading(obj) {
+      document.getElementById('progress').innerHTML = obj.progress;
+      document.getElementById('status').innerHTML = obj.status;
+      document.getElementById('speed').innerHTML = obj.speed;
     }
-</script>
+    </script>
+
+
+
+    <pear-downloader style="color: red;" onProgress="downloading(this)"
+      data-src="https://qq.webrtc.win/tv/Pear-Demo-Yosemite_National_Park.mp4">下载
+    </pear-downloader>
+
+
+
+    <br /><br />
+    <div> 状态： <span id="status"></span></div>
+    <div> 进度： <span id="progress"></span></div>
+    <div> 速度： <span id="speed"></span></div>
+
+
+</body>
 </html>
